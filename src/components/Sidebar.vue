@@ -15,7 +15,7 @@ const emit = defineEmits<{
       <Menu :size="28" />
     </button>
   </div>
-  <aside v-else class="w-20  fixed left-0 bottom-0 h-screen border-r border-blue-text ">
+  <aside v-else class="w-20  fixed left-0 top-0 bottom-0 h-screen border-r border-blue-text ">
     <ul class="mt-1">
       <li class="p-5 pl-6 cursor-pointer " @click="$emit('toggleMenu')">
         <Menu :size="28" />

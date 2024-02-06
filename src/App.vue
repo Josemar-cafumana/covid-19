@@ -121,7 +121,7 @@ const dataChart = computed(() => {
   <div class="flex">
     <Sidebar :menuOpen="menuOpen" @toggleMenu="toggleMenu" />
     <main :class="menuOpen ? 'ml-20' : ''" class="flex-1 h-screen ">
-      <div class="w-full p-1 px-4 pl-12  border-b  border-blue-text">
+      <div class="w-full p-1 px-4 pl-4 md:pl-12  border-b  border-blue-text">
         <img :src="logo" class="w-40" />
       </div>
       <div class="p-2">

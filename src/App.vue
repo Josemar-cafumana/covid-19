@@ -5,7 +5,7 @@ import Sidebar from '@/components/Sidebar.vue';
 import Skeleton from '@/components/Skeleton.vue';
 import Card from '@/components/Card.vue';
 import { useGetContries } from '@/services/covid/useCovid'
-import { computed, ref, watchEffect } from 'vue';
+import { computed, onMounted, onUnmounted, ref, watch, watchEffect } from 'vue';
 import type { ICard, ICountryData } from '@/types'
 import {
   Table,
@@ -31,6 +31,24 @@ const menuOpen = ref(true);
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value;
 };
+
+const screenWidth = ref(window.innerWidth);
+const handleResize = () => {
+  screenWidth.value = window.innerWidth;
+};
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+});
+watch(screenWidth, () => {
+  if (screenWidth.value < 720) {
+    menuOpen.value = false;
+  }else {
+    menuOpen.value = true;
+  }
+});
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize);
+});
 
 const { data, isLoading } = useGetContries();
 

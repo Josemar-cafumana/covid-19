@@ -27,6 +27,10 @@ import {
 } from 'chart.js'
 import { Bar } from 'vue-chartjs'
 
+const menuOpen = ref(true);
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value;
+};
 
 const { data, isLoading } = useGetContries();
 
@@ -115,14 +119,14 @@ const dataChart = computed(() => {
 
 <template>
   <div class="flex">
-    <Sidebar />
-    <main class="flex-1 h-screen ml-20">
+    <Sidebar :menuOpen="menuOpen" @toggleMenu="toggleMenu" />
+    <main :class="menuOpen ? 'ml-20' : ''" class="flex-1 h-screen ">
       <div class="w-full p-1 px-4 pl-12  border-b  border-blue-text">
         <img :src="logo" class="w-40" />
       </div>
       <div class="p-2">
         <div class="mx-auto w-11/12" v-if="isLoading">
-        <Skeleton />
+          <Skeleton />
         </div>
         <div v-else>
           <div class="mx-auto w-11/12">

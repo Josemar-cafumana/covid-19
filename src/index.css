@@ -21,6 +21,11 @@
  
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
+
+    --blue-background: #1A233A;
+    --orange: #E7484E;
+    --blue-text: #8290AE;
+    --blue-card: #272E48;
  
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -51,6 +56,11 @@
  
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
+
+    --blue-background: #1A233A;
+    --orange: #E7484E;
+    --blue-text: #8290AE;
+    --blue-card: #272E48;
  
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
@@ -71,8 +81,9 @@
 @layer base {
   * {
     @apply border-border;
+
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-blue-background text-blue-text;
   }
 }
